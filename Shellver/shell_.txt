@@ -143,3 +143,13 @@ call esi
 push ecx
 call eax ;Calling printf
  
+
+xor edx,edx
+push edx
+push 0x74697865
+mov ecx,esp
+push ecx
+push edi
+call esi
+
+call eax ; call exit()
