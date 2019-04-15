@@ -1,0 +1,100 @@
+xor ecx,ecx
+mov eax,fs:[ecx+0x30] 
+mov eax,[eax+0xc] 
+mov esi,[eax+0x14] 
+lodsd 
+xchg eax,esi 
+lodsd 
+mov ebx,[eax+0x10]
+ 
+mov edx,[ebx+0x3c]
+add edx,ebx 
+mov edx,[edx+0x78]
+add edx,ebx 
+mov esi,[edx+0x20]
+add esi,ebx 
+xor ecx,ecx
+
+ 
+Get_func:
+inc ecx 
+lodsd 
+add eax,ebx 
+cmp dword ptr [eax],0x50746547 
+jnz Get_func
+cmp dword ptr [eax+0x4],0x41636f72 
+jnz Get_func
+cmp dword ptr [eax+0x8],0x65726464 
+jnz Get_func
+ 
+
+ 
+mov esi,[edx+0x24]
+ 
+add esi,ebx 
+ 
+mov cx,[esi+ecx*2] 
+dec ecx
+mov esi,[edx+0x1c] 
+ 
+add esi,ebx
+mov edx,[esi+ecx*4]
+add edx,ebx 
+ 
+ 
+xor esi,esi
+mov esi,edx
+
+xor ecx,ecx
+push ecx
+push 0x41797261
+push 0x7262694c
+push 0x64616f4c
+ 
+mov ecx,esp
+ 
+push ecx
+push ebx
+ 
+call edx
+ 
+xor ecx,ecx
+ 
+mov cx, 0x6c6c
+push ecx
+push 0x642e7472
+push 0x6376736d
+ 
+mov ecx,esp
+push ecx
+call eax
+
+xor edi,edi
+mov edi,eax
+
+
+
+
+
+
+
+xor edx,edx
+push edx
+mov dx, 0x6674
+push edx
+push 0x6e697270
+mov ecx,esp
+push ecx
+push edi
+xor edx,edx
+mov edx,esi
+call edx
+ 
+xor ecx,ecx
+mov cx, 0x0a66
+push ecx
+push 0x6e696d65
+push 0x74737973
+mov ecx,esp
+push ecx
+call eax 
