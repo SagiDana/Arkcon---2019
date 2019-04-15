@@ -112,8 +112,9 @@ xor edx,edx
 mov edx,esi
 call edx
 
-mov ecx, esp
 sub esp, 0x20
+mov ecx, esp
+sub esp,4
 
 push ebx
 xor ebx,ebx
@@ -125,7 +126,7 @@ inc ebx
 push ebx
 push ecx
 call eax 
-mov ebx, ecx
+pop ebx
 
 xor edx,edx
 mov dx, 0x6674
@@ -136,7 +137,11 @@ push ecx
 push edi
 call esi
 
-sub ebx, 2
+xor ecx,ecx
+push ecx
+push 0x41414141
+mov ecx, esp
+push ecx
 push ebx
 call eax
 
@@ -148,39 +153,3 @@ push ecx
 push edi
 call esi
 call eax
-
-
-
-
-xor edx,edx
-mov dx, 0x6674
-push edx
-push 0x6e697270
-mov ebx,esp
-push ebx
-push edi
-call esi
-
-push ecx
-call eax 
-
-xor edx,edx
-push edx
-push 0x74697865
-mov ecx,esp
-push ecx
-push edi
-call esi
-
-call eax
-
-
-xor edx,edx
-push edx
-push 0x74697865
-mov ecx,esp
-push ecx
-push edi
-call esi
-call eax
-xor eax,eax
